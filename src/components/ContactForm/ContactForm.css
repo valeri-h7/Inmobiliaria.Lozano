@@ -1,0 +1,87 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 32px;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form__field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.contact-form__field input,
+.contact-form__field select,
+.contact-form__field textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--paper-soft);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.contact-form__field input:focus,
+.contact-form__field select:focus,
+.contact-form__field textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.contact-form__success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 40px 32px;
+  color: var(--sage);
+}
+
+.contact-form__success h3 {
+  color: var(--ink);
+  font-size: 1.3rem;
+}
+
+.contact-form__success p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .contact-form { padding: 24px 20px; gap: 16px; }
+  .contact-form__row { grid-template-columns: 1fr; gap: 16px; }
+
+  /* 16px evita el zoom automático de iOS al enfocar un campo */
+  .contact-form__field input,
+  .contact-form__field select,
+  .contact-form__field textarea { font-size: 1rem; }
+
+  .contact-form__submit { align-self: stretch; }
+}

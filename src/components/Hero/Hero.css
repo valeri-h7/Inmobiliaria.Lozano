@@ -1,0 +1,191 @@
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  padding: 160px 0 80px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--navy-dark);
+}
+
+/* Nota: antes el .hero tenía overflow:hidden. El video y la capa oscura
+   ya están pegados al 100% del contenedor (position:absolute + width/height
+   100%), así que no lo necesitan para no desbordar — y si lo tenía, se
+   comía el listado de sugerencias del buscador (position:absolute, se
+   extiende por fuera del hero). Por eso se sacó. */
+
+
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  z-index: 0;
+}
+/* Capa oscura */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 19, 26, 0.85) 0%,   
+    rgba(22, 35, 47, 0.6) 50%,
+    rgba(22, 35, 47, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+
+.hero__content.container {
+  margin-left: 0;         /* ANULA EL CENTRADO DEL INDEX.CSS */
+  margin-right: auto;
+  max-width: var(--container); 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  text-align: left; 
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+}
+
+/* TEXTO SUPERIOR (KICKER) */
+.hero__kicker {
+  margin: 0 0 14px 0;
+  color: var(--brass); 
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+/* TÍTULO PRINCIPAL */
+.hero h1 {
+  font-family: var(--font-display); 
+  color: var(--white);         
+  margin: 0 0 24px 0;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* DESCRIPCIÓN  */
+.hero__lede {
+  font-family: var(--font-body);
+  max-width: 560px;
+  margin: 0 0 36px 0;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--paper-soft);
+}
+
+
+
+.hero__cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+
+.hero .btn-primary {
+  background: var(--brass);
+  color: var(--white);
+  border-color: transparent;
+}
+
+.hero .btn-primary:hover {
+  background: var(--brass-tint);
+  color: var(--brass)
+}
+
+
+.hero .btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color:  var(--white);
+}
+.hero .btn-outline:hover {
+  background: var(--paper-soft);
+  color: var(--navy-dark);
+  border-color: var(--brass);
+}
+
+/* TEXTO DE CONFIANZA */
+.hero__trust {
+  font-family: var(--font-body);
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+.hero__search.container {
+  margin-left: 0;        /* ANULA EL CENTRADO */
+  margin-right: auto;
+  max-width: var(--container);
+  width: 100%;
+  position: relative;
+  z-index: 3;
+  /* Antes era margin-top:auto (empujaba el buscador al fondo del hero,
+     pero en viewports bajos lo pegaba contra los botones de arriba).
+     Con un valor fijo queda siempre con el mismo aire. */
+  margin-top: 56px;
+}
+
+/* ===================================================
+   MEDIA QUERIES RESPONSIVE
+=================================================== */
+
+/* TABLETS */
+@media (max-width: 992px) {
+  .hero {
+    padding: 140px 0 60px;
+  }
+  
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(22, 35, 47, 0.9) 0%,
+      rgba(22, 35, 47, 0.6) 100%
+    );
+  }
+}
+
+/* CELULARES */
+@media (max-width: 576px) {
+  .hero {
+    padding: 120px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Fluido en pantallas chicas */
+  .hero h1 br {
+    display: none;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero .btn {
+    width: 100%; /* Botones full-width para dedo en móvil */
+  }
+}
+

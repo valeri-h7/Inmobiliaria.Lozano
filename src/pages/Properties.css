@@ -1,0 +1,103 @@
+section.properties-page { padding-top: 128px; }
+.properties-page .back-button { margin-bottom: 20px; }
+.properties-page .section-head { margin-bottom: 28px; }
+.properties-page .section-head h2 { margin-bottom: 8px; }
+
+.properties-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 28px;
+}
+
+.properties-page__filter {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 140px;
+  flex: 1;
+}
+
+.properties-page__filter label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.properties-page__filter select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  background: var(--paper-soft);
+}
+
+.properties-page__filter--location .neighborhood-combobox input {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  background: var(--paper-soft);
+}
+
+.properties-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.properties-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 60px 0;
+  color: var(--text-muted);
+}
+
+@media (max-width: 980px) {
+  .properties-page__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .properties-page__grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* Móvil: filtros en 2 columnas para ocupar la mitad de alto */
+@media (max-width: 560px) {
+  section.properties-page { padding-top: 92px; padding-bottom: 48px; }
+  .properties-page .section-head { margin-bottom: 20px; }
+  .properties-page .section-head h2 { font-size: 1.6rem; }
+  .properties-page .section-head .lede { font-size: 0.92rem; }
+
+  .properties-page__filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 22px;
+  }
+  .properties-page__filter { min-width: 0; }
+
+  /* 16px evita el zoom automático de iOS al tocar un campo */
+  .properties-page__filter select,
+  .properties-page__filter--location .neighborhood-combobox input {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+}
+
+/* Mismo alto para los selects y el campo de barrio */
+.properties-page__filter select,
+.properties-page__filter--location .neighborhood-combobox input {
+  min-height: 34px;
+  line-height: 1.2;
+}

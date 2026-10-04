@@ -1,0 +1,70 @@
+.neighborhood-combobox {
+  position: relative;
+  width: 100%;
+}
+
+.neighborhood-combobox input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0;
+}
+
+.neighborhood-combobox input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.neighborhood-combobox input:focus {
+  outline: none;
+}
+
+.neighborhood-combobox__suggestions {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  min-width: 220px;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 20;
+  padding: 6px;
+}
+
+.neighborhood-combobox__suggestions--empty {
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.neighborhood-combobox__suggestions li {
+  list-style: none;
+}
+
+.neighborhood-combobox__suggestions button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.neighborhood-combobox__suggestions button:hover,
+.neighborhood-combobox__suggestions button.is-highlighted {
+  background: var(--navy-tint);
+  color: var(--navy);
+}
